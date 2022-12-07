@@ -1,13 +1,7 @@
-garniture=[]
-S=0
-garn="Pizza"
-while garn!="quitter":
-    garn=(input("Nouvelle garniture: "))
-    print("vous avez ajouez "+garn+" dans la liste des garniture")
-    garniture.append(garn)
-    S=S+2.5
-    
-print(garniture)
-print("le prix total est de: ",10+S)
-
+L=[]
+I=1
+for i in range (1,8):
+    L.append(I+0.5)
+    I=I+0.5
+print(L)
 
