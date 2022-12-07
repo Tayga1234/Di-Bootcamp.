@@ -32,9 +32,9 @@ print("I have a",computer_brand,"computer")
 #------------####-------Exo5------####-------------#
 
 name="KOROGO Gaetan"
-age="20"
-shose_size="43"
-info=("Je me nomme "+name +" j'ai "+ age +" ans" + " j'ai une de " +shose_size+".")
+age=20
+shose_size=43
+info=("Je me nomme {} j'ai {} ans je chausse du {} ." .format(name, age, shose_size))
 print(info)
 
 
@@ -54,7 +54,7 @@ if nb%2==0:
     print(nb,"est paire")
 else:
     print(nb,"est impaire")
-    
+
     
     
 #----------####-------Exo8------####------------#
