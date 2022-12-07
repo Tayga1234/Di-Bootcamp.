@@ -35,10 +35,12 @@ print("le panier contient: ",basket)
 
 for i in range (1,21):
     print(i)
+k=-1
 
 for i in range (1,21):
+    k=k+1
     if i%2==0:
-        print(i)
+        print(i,"idex",k)
         
 ######________Exercice 6 : Boucle While________######
 name=""
