@@ -1,3 +1,4 @@
+
 #----------##----Exo1---##----------#
 
 print("Hello World \n"*4)
@@ -31,9 +32,9 @@ print("I have a",computer_brand,"computer")
 #------------####-------Exo5------####-------------#
 
 name="KOROGO Gaetan"
-age=20
-shose_size=43
-info='Je me nomme',name,"j'ai ",age,"ans","j'ai une de ",shose_size,"."
+age="20"
+shose_size="43"
+info=("Je me nomme "+name +" j'ai "+ age +" ans" + " j'ai une de " +shose_size+".")
 print(info)
 
 
