@@ -29,9 +29,13 @@ print(basket)
 
 basket.append("Kiwi")
 
-basket.insert(0,"Pommes")
+basket.insert(0,"Apples")
 
-print(len(basket))
+nb_apple=basket.count("Apples")
+
+print("Le nombre de pommes est:",nb_apple)
+
+print("La taille du panier actuel est:",len(basket))
 
 basket.clear()
 
