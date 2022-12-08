@@ -1,18 +1,19 @@
 ######________Exercice 1 : Set________######
 
-my_fav_numbers=[1,5,23,30,50]
-my_fav_numbers.extend([34,70])
+my_fav_numbers=set()
+my_fav_numbers={1,5,23,30,50}
+my_fav_numbers.add(34)
+my_fav_numbers.add(70)
 my_fav_numbers.remove(70)
-friend_fav_numbers=[0,3,4,9,25,45,100]
+friend_fav_numbers={0,3,4,9,25,45,100}
 print(my_fav_numbers)
-our_fav_numbers=my_fav_numbers+friend_fav_numbers
+our_fav_numbers=my_fav_numbers.union(friend_fav_numbers)    #concatenation des 2 listes
 print(our_fav_numbers)
-
 
 
 ######________Exercice 2 : Tuple________######
 
-# Reponse: NON, on ne peut pas ajouter des element a un tuple dont la valeur est un entier
+# Reponse: NON, on ne peut pas ajouter des element a un tuple dont la valeur est un entier car les tuples sont immuables ne peuvent etre modifiés
 
 
 
