@@ -23,6 +23,8 @@ basket = ["Banana", "Apples", "Oranges", "Blueberries"];
 
 basket.pop(0)
 
+basket.remove("Blueberries")
+
 print(basket)
 
 basket.append("Kiwi")
@@ -31,7 +33,7 @@ basket.insert(0,"Pommes")
 
 print(len(basket))
 
-basket=""
+basket.clear()
 
 print("le panier contient: ",basket)
 
