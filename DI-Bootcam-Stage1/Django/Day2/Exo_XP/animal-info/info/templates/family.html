@@ -1,0 +1,41 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Affichage de la famille</title>
+    </head>
+    <body>
+    {% comment %} <></> {% endcomment %}
+            
+    <h1>Liste des animaux de la famille</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Identifiant</th>
+                    <th>Nom</th>
+                    <th>Pattes</th>
+                    <th>Poids</th>
+                    <th>Vitesse</th>
+                   
+                </tr>
+            </thead> 
+                    {% for x in family %}
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>{{x.id}}</td>
+                    <td>{{x.nom}}</td>
+                    <td>{{x.pattes}}</td>
+                    <td>{{x.poids}}</td>
+                    <td>{{x.vitesse}}</td>
+                    
+                </tr>
+                    {% endfor%}
+            
+            </tbody>  
+        </table>   
+        
+    </body>
+    </html>

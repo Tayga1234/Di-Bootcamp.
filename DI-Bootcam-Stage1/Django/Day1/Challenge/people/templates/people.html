@@ -1,0 +1,55 @@
+{%load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link ="{% static 'css/blog.css'%}" rel="stylesheet">
+    <link ="{% static 'css/blog.rtl.css'%}" rel="stylesheet">
+    <link ="{% static 'css/boostrap.min.css'%}" rel="stylesheet">
+    <title>PEOPLE</title>
+</head>
+
+
+<body>
+    <h1>Liste des Personnes</h1>
+    <div class="row g-5">
+        <div class="col-md-8">
+            <table class="table" >
+                <thead>
+                    <tr>
+                        <th>Identifiant</th>
+                        <th ></th><th ></th>
+                        <th>Nom</th>
+                        <th></th><th ></th>
+                        <th>Age</th>
+                        <th></th><th ></th><th ></th>
+                        <th>Pays</th>
+                        <th></th><th ></th>
+                        <th>Détails</th>
+                        
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for x in people %}
+                <tr></tr>
+
+                    <tr>
+                        <td>{{ x.id }}</td>
+                        <td></td><td></td>
+                        <td>{{ x.name }}</td>
+                        <td></th><td></td>
+                        <td>{{ x.age }}</td>
+                        <td></td><td></td><td></td>
+                        <td>{{ x.country}}</td>
+                        <td></th><td></td>
+                        <td><button><a href ="{%  url 'detail' x.id %} "> view <a></button></td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table >
+
+        </div>
+    </div>
+</body>
+</html>

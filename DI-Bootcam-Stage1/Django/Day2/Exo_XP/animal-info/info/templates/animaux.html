@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Animaux</title>
+</head>
+<body>
+{% comment %} <></> {% endcomment %}
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Identifiant</th>
+                <th>Nom</th>
+                <th>Pattes</th>
+                <th>Poids</th>
+                <th>Vitesse</th>
+                <th>famille</th>
+            </tr>
+        </thead> 
+                {% for x in animaux %}
+        <tbody>
+            <tr>
+                <td></td>
+                <td>{{x.id}}</td>
+                <td>{{x.nom}}</td>
+                <td>{{x.pattes}}</td>
+                <td>{{x.poids}}</td>
+                <td>{{x.vitesse}}</td>
+                <td>{{x.famille.nom}}</td>
+                <td><button><a href ="{%  url 'animal' x.id %} "> view <a></button></td>
+            </tr>
+                {% endfor%}
+        
+        </tbody>  
+    </table>   
+    
+</body>
+</html>

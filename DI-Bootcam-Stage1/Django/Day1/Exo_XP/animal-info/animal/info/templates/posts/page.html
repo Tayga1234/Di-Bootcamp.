@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+</head>
+
+
+<body>
+    <h1>Liste des animaux</h1>
+    <table >
+        <thead>
+            <tr>
+                <th>Identifiant</th>
+                <th>Nom</th>
+                <th>Nbr Pattes</th>
+                <th>famille</th>
+                
+
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for x in animals, %}
+            <tr>
+                <th>{{ x.id }}</th>
+                <th>{{ x.name }}</th>
+                <th>{{ x.legs }}</th>
+                <th>{{ x.family}}</th>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table >
+
+    <h1>Liste des famille</h1>
+    <table >
+        <thead>
+            <tr>
+                <th>Identifiant</th>
+                <th>Nom</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for y in families, %}
+            <tr>
+                <td>{{ x.id }}</td>
+                <td>{{ x.name }}</td>  
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table >
+</body>
+</html>

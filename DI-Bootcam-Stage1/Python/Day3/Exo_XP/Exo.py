@@ -55,5 +55,5 @@ def function(number):
 function(10)
 
 
-#----------Exercice 4 : Aléatoire-----------#
+#----------Exercise 5 : Let’s Create Some Personalized Shirts !-----------#
 
