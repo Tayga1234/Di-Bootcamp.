@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Animaux</title>
+</head>
+<body>
+{% comment %} <></> {% endcomment %}
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Identifiant</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Phone_number</th>
+                <th>Adresse</th>
+                
+            </tr>
+        </thead> 
+                {% for x in personnes %}
+        <tbody>
+            <tr>
+                <td></td>
+                <td>{{x.id}}</td>
+                <td>{{x.nom}}</td>
+                <td>{{x.email}}</td>
+                <td>{{x.phone_number}}</td>
+                <td>{{x.adresse}}</td>
+                <td><button><a href ="{%  url 'person_N' x.nom %} "> view <a></button></td>
+            </tr>
+                {% endfor%}
+        
+        </tbody>  
+    </table>   
+    
+</body>
+</html>
