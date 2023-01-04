@@ -12,9 +12,8 @@ def personnes (request):
     return render (request,'personnes.html', context)
 
 #cette vue recupere le nom et affiche les infos de la personne
-def person_N (request,nom,id):
-    if nom == Person.objects(nom):
-        detail=Person.objects.get(pk=id)
+def person_N (request,nom):
+    detail=Person.objects.get(nom=nom)
  
     context={
         'detail': detail
@@ -23,9 +22,8 @@ def person_N (request,nom,id):
 
 #cette vue recupere le numero et affiche les infos de la personne
 
-def person_P (request, phone_number, id):
-    if Person.objects.get(phone_number):
-        detail = Person.objects.get(pk=id)
+def person_P (request, phone_number):
+    detail = Person.objects.get(phone_number=phone_number)
     context={
         'detail': detail
     }
