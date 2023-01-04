@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1>Tous les GIFs</h1>
+        <div class="row mt-5">
+            {% for gif in gifs %}
+                <div class="col-4">
+                    <img src="{{ gif.url }}" class="img-fluid" alt="{{ gif.title }}">
+                    <h2>{{ gif.title }}</h2>
+                    <p>Ajouté par {{ gif.uploader_name }}</p>
+                    <p>Date de création : {{ gif.created_at }}</p>
+                    <a href="{% url 'gif' gif.id %}" class="btn btn-primary">Voir</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
