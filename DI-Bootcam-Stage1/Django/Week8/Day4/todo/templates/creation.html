@@ -1,0 +1,54 @@
+{%load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day4 Creation</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="{% static 'css/bootstrap.min.css' %}"  rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    
+  </head>
+  <body class="text-center">
+  
+        
+
+<main class="form-signin">
+<h1>Enregistrement d'une tache</h1>
+<br><br>
+  <form method='POST' action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type='submit'> Ajouter</button>
+  </form>
+</main>
+
+
+    
+  </body>
+</html>

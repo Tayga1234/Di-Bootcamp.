@@ -1,6 +1,25 @@
-from django.shortcuts import render
+
+from pyexpat.errors import messages
+from django.shortcuts import render, redirect
 
 from info.models import Person
+from info.forms import PersonForm
+
+
+def create(request):
+    if request.method=='POST':
+        #form= PersonForm(request.POST).save()
+        nm = request.POST['nom']
+        em= request.POST['email']
+        ph = request.POST['phone_number']
+        adr= request.POST['adresse']
+        
+        ma_personne = Person( nom=nm, email=em , phone_number=ph , adresse=adr)
+        ma_personne.save()
+        messages.success(request, 'enregistré avec succès')
+        return redirect('/create')
+    
+    return render (request,'create.html')
 
 # Create your views here.
 def personnes (request):
