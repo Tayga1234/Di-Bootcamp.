@@ -11,11 +11,11 @@ from .forms import Person,PersonForm
 
 
 def create(request):
-    form=PersonForm(request.POST or None)
+    form=PersonForm(request.POST)
     if form.is_valid():
         form.save()
-        messages.success(request, 'enregistré avec succès')
-        return redirect('/create')
+        
+        return redirect('/persons')
     context= {
         'form':form
     }

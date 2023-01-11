@@ -12,5 +12,5 @@ class PersonForm(forms.ModelForm):
         fields=['nom','phone_number']
         widgets = {
             'nom' :forms.TextInput(attrs = {'class': "form-control"}),
-            
+            'phone_number' : forms.NumberInput(attrs = {'class': "form-control"}),
         }
