@@ -1,0 +1,143 @@
+Metadata-Version: 2.1
+Name: pages
+Version: 0.3
+Summary: Static site generator
+Home-page: https://sr.ht/~olly/pages
+Author: Oliver Cope
+Author-email: oliver@redgecko.org
+License: Apache
+Platform: UNKNOWN
+License-File: LICENSE.txt
+Requires-Dist: docutils
+Requires-Dist: piglet-templates
+Requires-Dist: importlib-metadata
+Provides-Extra: chameleon
+Requires-Dist: chameleon ; extra == 'chameleon'
+Provides-Extra: genshi
+Requires-Dist: genshi ; extra == 'genshi'
+Provides-Extra: jinja2
+Requires-Dist: jinja2 ; extra == 'jinja2'
+Provides-Extra: kajiki
+Requires-Dist: kajiki ; extra == 'kajiki'
+Provides-Extra: markdown
+Requires-Dist: markdown ; extra == 'markdown'
+
+Pages
+=====
+
+Pages is a command line static site generator.
+
+Piglet templates are used by default, but Jinja2, Chameleon, Genshi or Kajiki can all be used
+supported, and content can be read from reStructuredText, markdown or JSON data
+files.
+
+Quick start
+-----------
+
+To get up and running with the default configuration of Piglet + reStructuredText::
+
+    pip install pages
+
+    pages --template layout.html --output build/ src/
+
+For markdown, or to use another templating system, install the relevant extras hook, eg::
+
+    pip install pages[markdown,jinja2]
+
+
+Examples
+--------
+
+Select individual files to render::
+
+
+    pages --template layout.html -p1 --output=build/ src/index.md src/page1.md
+
+
+Select a different template for a file::
+
+    pages --template layout.html -p1 --output=build/ src/ src/stats.json:report.html
+
+Read the list of files to render from stdin::
+
+    find src/ -type f -name \*md | pages --template layout.html -p1 --output=build/
+
+Select a different templating system::
+
+    pages --render-with jinja2 --template layout.html --output=build/ src/
+
+Load additional data into the template context::
+
+    # Inline JSON
+    pages --template layout.html --context '{"foo": "bar"}' src/
+
+    # a JSON file
+    pages --template layout.html --context data.json  src/
+
+    # JSON loaded from a remote API
+    pages --template layout.html --context <(curl -s 'wttr.in/?format=j1') src/
+
+    # A python module
+    pages --template layout.html --context myproject.somemodule:avariable src/
+
+    # A python script
+    pages --template layout.html --context somevars.py src/
+
+
+Path stripping
+--------------
+
+If you supply a directory to pages, it will render all the files inside that directory, stripping off the directory name. For example given a file at ``src/index.rst``, this::
+
+    pages -t layout.html -o build/ src/
+
+will produce this::
+
+    build/index.html
+
+
+It will not strip the prefix of individually named files, so this::
+
+    pages -t layout.html -o build/ src/index.rst
+
+will produce this::
+
+    build/src/index.html
+
+Use ``-p <n>``/``--strip <n>`` to tell pages to remove one or more levels of path prefix.
+``-p 1`` will strip off one level of prefix, higher values will strip off more.
+``-p 0`` will leave the path unmodified.
+
+Note that ``-p/--strip`` is only used for sources listed by full path names.
+
+
+Rendering markdown
+------------------------
+
+Markdown sources are processed using
+`Python-Markdown <http://pypi.org/project/Markdown>`_
+with the "`extra <https://python-markdown.github.io/extensions/extra/>`_"
+and "`meta <https://python-markdown.github.io/extensions/meta_data/>`_"
+extensions loaded.
+
+The template will be called with the following context variables::
+
+    {
+        "html": ...,  # Content rendered as HTML
+        "meta": ...,  # Parsed metadata
+    }
+
+Rendering reStructuredText
+----------------------------------
+
+reStructuredText sources make the following context variables available to the template::
+
+    {
+      "title": ...              # Document title
+      "meta": ...               # Key-value pairs from top level field lists
+      "html": ...               # Rendered html body (incl. the title heading)
+      "html_without_title": ... # As above, but without the title heading
+      "parts": ...              # Parts dict as returned by the docutils writer
+    }
+
+

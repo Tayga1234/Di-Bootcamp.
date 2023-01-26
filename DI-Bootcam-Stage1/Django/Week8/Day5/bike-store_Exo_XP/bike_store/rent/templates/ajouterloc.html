@@ -1,0 +1,70 @@
+{%load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Signin Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"
+
+ 
+
+    
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/signin.css'%}" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin">
+  <form method='POST' action="">
+    {% csrf_token %}
+    
+    <h1 class="h3 mb-3 fw-normal">Remplir le formulaire </h1>
+    <div class="form-floating">
+         <select class="form-control" name="client" required>
+             {% for pers in inf %}
+              <option value='{{pers.id }}'>{{ pers.nom }} {{ pers.prenom }}</option>
+            {% endfor %}
+         </select>
+        <label for="client">Identifiant d'Utilisateur</label>
+      </div>
+      <div class="form-floating">
+        <select class="form-control" name="voiture" required>
+          {% for voi in voit %}
+           <option value='{{voi.id }}'>{{ voi.type_vehicule_id.nom }}</option>
+         {% endfor %}
+      </select>
+        <label for="voiture">Identifiant du Vehicule</label>
+      </div>
+
+      <div class="form-floating">
+        <input type="date" class="form-control" id="date_creation" name="date_crea" placeholder="date de location" required>
+        <label for="date_crea">Date location</label>
+      </div>
+      <div class="form-floating">
+        <input type="date" class="form-control" id="date_retour" name="date_ret" placeholder="date de retour" required>
+        <label for="date_ret">date de retour</label>
+      </div>
+    <div class="form-floating">
+      <input type="number" class="form-control" id="cout" name="cout" placeholder="montant de la location" required>
+      <label for="cout">Montant</label>
+    </div>
+    
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Valider</button>
+    
+  </form>
+</main>
+
+
+    
+  </body>
+</html>

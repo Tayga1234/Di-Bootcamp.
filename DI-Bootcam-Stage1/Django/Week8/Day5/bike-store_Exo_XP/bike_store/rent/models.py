@@ -1,35 +1,35 @@
 from django.db import models
 
-# Create your models here.
+class Client(models.Model):
+    nom = models.CharField(max_length=40)
+    prenom = models.CharField(max_length=50)
+    adresse = models.CharField(max_length=20)
+    email = models.CharField(max_length=20)
+    ville =models.CharField(max_length=20)
+    pays = models.CharField(max_length=20)
+    
+    
+class Type_vehicule(models.Model):
+    nom = models.CharField(max_length=30)
 
-class Customer(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField(unique=True)
-    phone_number = models.CharField(max_length=20)
-    address = models.CharField(max_length=100)
-    city = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
+class Taille_vehicule(models.Model):
+    nom = models.CharField(max_length=30)
 
-class VehicleType(models.Model):
-    name = models.CharField(max_length=50)
 
-class VehicleSize(models.Model):
-    name = models.CharField(max_length=50)
-
-class Vehicle(models.Model):
-    vehicle_type = models.ForeignKey(VehicleType, on_delete=models.CASCADE)
-    date_created = models.DateField(auto_now_add=True)
-    real_cost = models.DecimalField(max_digits=7, decimal_places=2)
-    size = models.ForeignKey(VehicleSize, on_delete=models.CASCADE)
-
-class RentalRate(models.Model):
-    daily_rate = models.DecimalField(max_digits=7, decimal_places=2)
-    vehicle_type = models.ForeignKey(VehicleType, on_delete=models.CASCADE)
-    vehicle_size = models.ForeignKey(VehicleSize, on_delete=models.CASCADE)
-
-class Rental(models.Model):
-    rental_date = models.DateField()
-    return_date = models.DateField()
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+class Vehicule(models.Model):
+    date_creation = models.DateTimeField()
+    cout = models.IntegerField()
+    taille_id = models.ForeignKey(Taille_vehicule, default=0, on_delete=models.CASCADE)
+    type_vehicule_id = models.ForeignKey(Type_vehicule, default=0, on_delete=models.CASCADE)
+    
+class Location(models.Model):
+    date_location = models.DateTimeField()
+    date_retour = models.DateTimeField()
+    cout = models.IntegerField()
+    client_id = models.ForeignKey(Client, default=0, on_delete=models.CASCADE)
+    vehicule_id = models.ForeignKey(Vehicule, default=0, on_delete=models.CASCADE)
+    
+class Location_tarif(models.Model):
+    tarif_jour = models.IntegerField()
+    taille_id = models.ForeignKey(Taille_vehicule, default=0, on_delete=models.CASCADE)
+    type_vehicule_id = models.ForeignKey(Type_vehicule, default=0, on_delete=models.CASCADE)

@@ -1,0 +1,12 @@
+[console_scripts]
+pages = pages.scripts:main
+
+[pages.template_plugins]
+chameleon = pages.templateplugins:ChameleonRenderer
+genshi = pages.templateplugins:GenshiRenderer
+jinja2 = pages.templateplugins:Jinja2Renderer
+kajiki = pages.templateplugins:KajikiRenderer
+kajiki-text = pages.templateplugins:KajikiTextRenderer
+kajiki-xml = pages.templateplugins:KajikiXMLRenderer
+piglet = pages.templateplugins:PigletRenderer
+

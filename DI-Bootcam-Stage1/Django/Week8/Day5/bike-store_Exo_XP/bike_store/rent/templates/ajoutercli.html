@@ -1,0 +1,73 @@
+{%load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>ajouter un client</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"
+
+ 
+
+    
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/signin.css'%}" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin">
+  <form method='POST' action="">
+    
+    <h1 class="h3 mb-3 fw-normal">Enregistrer Client</h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+
+
+
+
+
+    {% comment %} <div class="form-floating">
+      <input type="text" class="form-control" id="nom" name="nom" placeholder="saisir le nom" required>
+      <label for="nom">Nom</label>
+    </div>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="saisir le prenom" required>
+        <label for="prenom">Prenom(s)</label>
+      </div>
+
+      <div class="form-floating">
+        <input type="text" class="form-control" id="nom" name="adresse" placeholder="saisir l'adresse" required>
+        <label for="adresse">adresse</label>
+      </div>
+      <div class="form-floating">
+        <input type="email" class="form-control" id="email" name="email" placeholder="saisir email">
+        <label for="email">Email</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="prenom" name="ville" placeholder="ville">
+        <label for="ville">Ville</label>
+      </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="pays" name="pays" placeholder="saisir le pays">
+      <label for="pays">Pays</label>
+    </div> {% endcomment %}
+    
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Valider</button>
+    
+  </form>
+</main>
+
+
+    
+  </body>
+</html>
